@@ -64,7 +64,18 @@ export default {
       });
     },
     //启动本地服务mock数据，post请求
-    getDataTestPost() {},
+    getDataTestPost() {
+      const params = {
+        mpiId: "123456",
+        bussType: "HOL",
+        userType: "1",
+      };
+      this.$httpPost(this.$inface.test6, params).then((res) => {
+        if (res.status == 200) {
+          this.mockData3 = JSON.stringify(res);
+        }
+      });
+    },
 
     //easyMock get请求
     getTestEasyMockGet() {
